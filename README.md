@@ -15,4 +15,5 @@ Prerequisite :
 ### Method 2 :
 
 ` docker-compose build` and ` docker-compose up -d `
-*** Make sure you docker and docker-compose installed ***
+
+***Make sure you docker and docker-compose installed***
