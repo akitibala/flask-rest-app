@@ -2,7 +2,7 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Any, Optional
-# from decorators import singleton
+
 import csv
 import json
 import os
@@ -44,9 +44,8 @@ class AbstractHandler(Handler):
 
     def set_next(self, handler: Handler) -> Handler:
         self._next_handler = handler
-        # Returning a handler from here will let us link handlers in a
-        # convenient way like this:
-        # monkey.set_next(squirrel).set_next(dog)
+      
+        
         return handler
 
     @abstractmethod
@@ -60,7 +59,7 @@ class AbstractHandler(Handler):
         A = rectangle[0]
         B = rectangle[1]
         C = rectangle[2]
-        print(point)
+    
         BA = self._vector(B,A)
         BC = self._vector(B,C)
         BM = self._vector(B,point)
@@ -91,7 +90,7 @@ the chain.
 class TopLeftHandler(AbstractHandler):
     def handle(self, rectangle:list,points:list):
         
-        # print("tl")
+    
         if self.point_in_rectangle(rectangle,points[0]):
         
              return super().handle(rectangle,points)
@@ -102,7 +101,7 @@ class TopLeftHandler(AbstractHandler):
 @singleton
 class BottomLeftHandler(AbstractHandler):
     def handle(self, rectangle:list,points:list):
-        # print("bl")
+    
         if self.point_in_rectangle(rectangle,points[1]):
              return super().handle(rectangle,points)
         return False
@@ -111,7 +110,7 @@ class BottomLeftHandler(AbstractHandler):
 class BottomRightHandler(AbstractHandler):
 
     def handle(self, rectangle:list,points:list):
-        # print("br")
+        
         if self.point_in_rectangle(rectangle,points[2]):
              return super().handle(rectangle,points)
         return False
@@ -120,7 +119,7 @@ class BottomRightHandler(AbstractHandler):
 class TopRightHandler(AbstractHandler):
 
     def handle(self, rectangle:list,points:list):
-        # print("tr")
+        
         if self.point_in_rectangle(rectangle,points[3]):
             return super().handle(rectangle,points)
         return False
@@ -129,7 +128,7 @@ class TopRightHandler(AbstractHandler):
 
 
 def is_valid(handler:Handler,rectangle=[],points=[]):
-    # print(points[0])
+
     res = handler.handle(rectangle=rectangle,points=points)
 
     if res:
@@ -137,8 +136,7 @@ def is_valid(handler:Handler,rectangle=[],points=[]):
     return False
 
 
-    # The client should be able to send a request to any handler, not just the
-    # first one in the chain.
+
 
 
 def generate_rectangle_points(points=[]):
