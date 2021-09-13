@@ -1,7 +1,7 @@
 # flask-rest-app
 
 Prerequisite : 
-- Add csvs unzipped file(with csv files) in root directory for working solution
+- Add ***csvs unzipped file***(with csv files) in root directory for working solution
 - python3.8
 - flask
 - jsonschema
